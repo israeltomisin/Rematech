@@ -14,10 +14,16 @@ header{
     padding: 10px 5%;
     background: #fff;
     color: #333;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); 
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);  */
     position: sticky;
     top: 0;
     z-index: 1000;
+}
+.floating-header{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9); 
+    /* background: rgba(5, 8, 22, 0.85); */
+    /* backdrop-filter: blur(20px); */
+    /* box-shadow: 0 10px 30px rgba(0, 247, 255, 0.042); */
 }
 header .logo img{
     width: 100%;
@@ -700,6 +706,10 @@ footer .terms p{
     line-height: 1.5;
     color: #fff;
 }
+#service .service-content h5{
+    font-size: 3rem;
+    text-transform: uppercase;
+}
 #service .service-bg{
     background: linear-gradient(rgba(0,0,58,0.5)),url('./Images/Service-Bg.jpg');
     width: 100%;
@@ -711,7 +721,7 @@ footer .terms p{
     justify-content: center;
 }
 #service .service-card .card .card-txt i{
-    margin-right: 10px;
+    margin-right: 4px;
 }
 /* #service .service-content h5{
     text-transform: uppercase;
