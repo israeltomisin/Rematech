@@ -6,7 +6,7 @@
   <title>Multiplication Table</title>
 </head>
 <body>
-   <div class="container">
+   <!-- <div class="container">
       <input type="number" name="number" id="num1"><br>
       <input type="number" name="number" id="num2"><br>
       <button onclick="generateTable()">Generate Table</button>
@@ -22,6 +22,20 @@
       }
       document.getElementById('result').innerHTML = output;
     }
+   </script> -->
+
+   <video id="cameraFeed" autoplay>
+
+   </video>
+   <script>
+    const cameraFeed = document.getElementById('cameraFeed')
+    navigator.mediaDevices.getUserMedia({video : true})
+    .then(stream => {
+      cameraFeed.srcObject = stream
+    })
+    .catch(error => {
+      console.log('error accessing camera')
+    })
    </script>
 </body>
 </html>
