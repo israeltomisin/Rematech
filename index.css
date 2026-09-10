@@ -26,16 +26,17 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
-    background: #fff;
+    width: 100%;
+    /* background: #fff; */
     color: #333;
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);  */
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    z-index: 10;
 }
 .floating-header{
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9); 
-    /* background: rgba(5, 8, 22, 0.85); */
+    background: #fff;
     /* backdrop-filter: blur(20px); */
     /* box-shadow: 0 10px 30px rgba(0, 247, 255, 0.042); */
 }
