@@ -6,24 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../style/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Rematech | Your Real Estate Partner</title>
+    <title>Contact Rematech | Property &amp; Business Support</title>
 </head>
 <body>
     <!-- Header start here -->
     <header>
-        <div class="logo">
-            <img src="./Images/Logo.png" alt="Rematech">
-        </div>
+        <a class="logo" href="../html/Homepage.html" aria-label="Rematech home">
+            <img src="../Images/Logo.png" alt="Rematech">
+        </a>
         <nav>
             <ul>
                 <li><a href="../html/Homepage.html">Home</a></li>
                 <li><a href="../html/About.html">About</a></li>
-                <li><a href="#">Properties</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="../html/properties.html">Properties</a></li>
+                <li><a href="../html/services.html">Services</a></li>
                 <li><a href="../html/contact.html">Contact</a></li>
             </ul>
         </nav>
-        <button class="btn-primary">View Properties</button>
+        <a class="btn-primary" href="../html/viewproperties.html">Find a Property</a>
 
         <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu">
             <span></span>
@@ -32,19 +32,19 @@
         </button>
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-header">
-                <div class="logo">
-                    <img src="./Images/Logo.png" alt="Rematech">
-                </div>
+                <a class="logo" href="../html/Homepage.html" aria-label="Rematech home">
+                    <img src="../Images/Logo.png" alt="Rematech">
+                </a>
                 <button class="close-btn" id="closeBtn" type="button" aria-label="Close navigation"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
             </div>
             <ul>
                 <li><a href="../html/Homepage.html">Home</a></li>
                 <li><a href="../html/About.html">About</a></li>
-                <li><a href="#">Properties</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="../html/properties.html">Properties</a></li>
+                <li><a href="../html/services.html">Services</a></li>
                 <li><a href="../html/contact.html">Contact</a></li>
             </ul>
-            <button class="btn-primary">View Properties</button>
+            <a class="btn-primary" href="../html/viewproperties.html">Find a Property</a>
         </div>
     </header>
     <!-- Header ends here -->
@@ -80,7 +80,7 @@
                     </div>
                     <div class="contact-method">
                         <span class="method-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
-                        <span><small>Visit us</small><strong>Ijebu-Ode,Ogun State,Nigeria</strong></span>
+                        <span><small>Visit us</small><strong>2nd Floor, Cele Junction, Ejinrin Road, Ijebu-Ode, Ogun State</strong></span>
                     </div>
                 </div>
             </div>
@@ -114,6 +114,7 @@
                     <textarea id="contact-message" name="message" rows="4" placeholder="Tell us a little about what you need…" required></textarea>
                 </div>
                 <button class="contact-submit" type="submit">Send your message <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                <span class="contact-status" id="contact-status" role="status" aria-live="polite"></span>
             </form>
         </section>
 
@@ -121,12 +122,19 @@
             <div class="location-copy">
                 <span class="section-kicker">COME SAY HELLO</span>
                 <h2 id="location-title">Find our office</h2>
-                <p>We’re looking forward to welcoming you. Our map and directions will be added once the office location is confirmed.</p>
+                <p>We’re looking forward to welcoming you at our office on the 2nd floor at Cele Junction, along Ejinrin Road in Ijebu-Ode.</p>
             </div>
-            <div class="map-placeholder" role="img" aria-label="Map will be displayed here when the office location is provided">
-                <span class="map-pin"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
-                <strong>Our location will appear here</strong>
-                <span>Share your area and we’ll add the map.</span>
+            <div class="map-placeholder">
+                <iframe
+                    title="Map to Rematech at 2nd Floor, Cele Junction, Ejinrin Road, Ijebu-Ode, Ogun State"
+                    src="https://maps.google.com/maps?q=2nd%20Floor%2C%20Cele%20Junction%2C%20Ejinrin%20Road%2C%20Ijebu-Ode%2C%20Ogun%20State%2C%20Nigeria&amp;output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+                </iframe>
+                <a class="map-directions" href="https://www.google.com/maps/search/?api=1&amp;query=2nd%20Floor%2C%20Cele%20Junction%2C%20Ejinrin%20Road%2C%20Ijebu-Ode%2C%20Ogun%20State%2C%20Nigeria" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Open in Google Maps
+                </a>
             </div>
         </section>
 
@@ -155,7 +163,7 @@
                 </details>
                 <details class="faq-item">
                     <summary><span>Where is your office located?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></summary>
-                    <p>We’re adding our office address and map soon. Contact us by email for location details in the meantime.</p>
+                    <p>Our office is on the 2nd floor at Cele Junction, Ejinrin Road, Ijebu-Ode, Ogun State. You can view the map above for directions.</p>
                 </details>
             </div>
         </section>
@@ -163,34 +171,30 @@
     <footer>
         <div class="footer-flex">
             <div class="footer-left">
-                <img src="../Images/Logo.png" alt="">
+                <a href="../html/Homepage.html" aria-label="Rematech home"><img src="../Images/Logo.png" alt="Rematech"></a>
                 <p>Helping buyers, sellers, and investors discover premium properties with trusted guidance, transparent service, and expert market knowledge.</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://wa.me/2349026744296" aria-label="Chat with Rematech on WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="footer-left-center">
                 <h5>Quick links</h5>
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-greater-than"></i> Home</a></li>
-                    <li><a href="#"><i class="fa-solid fa-greater-than"></i> About</a></li>
-                    <li><a href="#"><i class="fa-solid fa-greater-than"></i> Properties</a></li>
-                    <li><a href="#"><i class="fa-solid fa-greater-than"></i> Services</a></li>
-                    <li><a href="#"><i class="fa-solid fa-greater-than"></i> Contact Us</a></li>
+                    <li><a href="../html/Homepage.html#top"><i class="fa-solid fa-greater-than" aria-hidden="true"></i> Home</a></li>
+                    <li><a href="../html/About.html"><i class="fa-solid fa-greater-than" aria-hidden="true"></i> About</a></li>
+                    <li><a href="../html/properties.html"><i class="fa-solid fa-greater-than" aria-hidden="true"></i> Properties</a></li>
+                    <li><a href="../html/services.html"><i class="fa-solid fa-greater-than" aria-hidden="true"></i> Services</a></li>
+                    <li><a href="../html/contact.html#top"><i class="fa-solid fa-greater-than" aria-hidden="true"></i> Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-center">
                 <h5>Our Services</h5>
                 <ul>
-                    <li>Property Sales</li>
-                    <li>Rentals</li>
-                    <li>Management</li>
-                    <li>Investment Consulting</li>
-                    <li>Valuation</li>
+                    <li><a href="../html/services.html#real-estate-training">Property sales</a></li>
+                    <li><a href="../html/services.html#real-estate-training">Rentals</a></li>
+                    <li><a href="../html/services.html#real-estate-training">Property management</a></li>
+                    <li><a href="../html/services.html#real-estate-training">Investment guidance</a></li>
+                    <li><a href="../html/services.html#real-estate-training">Real estate training</a></li>
                 </ul>
             </div>
             <div class="footer-right">
@@ -199,21 +203,21 @@
                     <i class="fa-solid fa-location-dot"></i>
                     <div class="text-icon">
                         <h5>Location:</h5>
-                        <p>Ijebu-Ode,Ogun State,Nigeria</p>
+                        <p><a href="../html/contact.html#location-title">2nd Floor, Cele Junction, Ejinrin Road, Ijebu-Ode, Ogun State</a></p>
                     </div>
                 </div>
                 <div class="icon-text-flex">
                     <i class="fa-solid fa-phone"></i>
                     <div class="text-icon">
                         <h5>Phone:</h5>
-                        <p>+2349026744296, +2347053359903</p>
+                        <p><a href="tel:+2349026744296">+234 902 674 4296</a>, <a href="tel:+2347053359903">+234 705 335 9903</a></p>
                     </div>
                 </div>
                 <div class="icon-text-flex">
                     <i class="fa-solid fa-envelope"></i>
                     <div class="text-icon">
                         <h5>Email:</h5>
-                        <p>info@rematechproperties.com</p>
+                        <p><a href="mailto:info@rematechproperties.com">info@rematechproperties.com</a></p>
                     </div>
                 </div>
                 <div class="icon-text-flex">
@@ -239,5 +243,6 @@
         </div>
     </footer>
     <script src="../js/main.js" defer></script>
+    <script src="../js/contact.js" defer></script>
 </body>
 </html>

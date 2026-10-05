@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tell Rematech what you are looking for in a property. Share your buying, rental, or investment brief and get personal guidance from our team.">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/viewproperties.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Find Your Property | Rematech Consulting Properties</title>
+</head>
+<body>
+    <header>
+        <a class="logo" href="../html/Homepage.html" aria-label="Rematech home">
+            <img src="../Images/Logo.png" alt="Rematech">
+        </a>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="../html/Homepage.html">Home</a></li>
+                <li><a href="../html/About.html">About</a></li>
+                <li><a href="../html/properties.html">Properties</a></li>
+                <li><a href="../html/services.html">Services</a></li>
+                <li><a href="../html/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a class="btn-primary" href="../html/contact.html">Contact our team</a>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-header">
+                <a class="logo" href="../html/Homepage.html" aria-label="Rematech home">
+                    <img src="../Images/Logo.png" alt="Rematech">
+                </a>
+                <button class="close-btn" id="closeBtn" type="button" aria-label="Close navigation"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            </div>
+            <ul>
+                <li><a href="../html/Homepage.html">Home</a></li>
+                <li><a href="../html/About.html">About</a></li>
+                <li><a href="../html/properties.html">Properties</a></li>
+                <li><a href="../html/services.html">Services</a></li>
+                <li><a href="../html/contact.html">Contact</a></li>
+            </ul>
+            <a class="btn-primary" href="../html/contact.html">Contact our team</a>
+        </div>
+    </header>
+
+    <main class="property-search-page">
+        <section class="property-search-hero" aria-labelledby="property-search-title">
+            <div class="property-search-hero__image" role="img" aria-label="Modern home surrounded by a landscaped garden"></div>
+            <div class="property-search-hero__content">
+                <span class="property-search-kicker"><span></span> A MORE PERSONAL PROPERTY SEARCH</span>
+                <h1 id="property-search-title">Tell us what<br>you’re <span>looking for.</span></h1>
+                <p>Every good property search starts with the right questions. Share what you have in mind, and our team will help you explore the next step.</p>
+                <a class="property-search-button property-search-button--light" href="#property-brief">Create your property brief <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+            </div>
+        </section>
+
+        <section class="property-search-content" id="property-brief" aria-labelledby="property-brief-title">
+            <div class="property-brief-copy">
+                <span class="property-search-kicker">YOUR PROPERTY BRIEF</span>
+                <h2 id="property-brief-title">A few details help us get started.</h2>
+                <p>Tell us a little about the property you have in mind. Your brief will be sent directly to our team so they can review your enquiry.</p>
+
+                <div class="property-brief-points">
+                    <div><span><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span><p><strong>Start with your goal</strong><small>Buying, renting, or exploring an investment?</small></p></div>
+                    <div><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><p><strong>Tell us where</strong><small>Share your preferred area or location.</small></p></div>
+                    <div><span><i class="fa-solid fa-comments" aria-hidden="true"></i></span><p><strong>We’ll take it from there</strong><small>Our team can discuss suitable next steps with you.</small></p></div>
+                </div>
+                <div class="property-brief-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Submitting an enquiry does not confirm property availability. We’ll discuss current options with you directly.</span></div>
+            </div>
+
+            <form class="property-brief-form" action="http://localhost:8000/property-enquiry" method="post">
+                <div class="property-brief-form__heading">
+                    <span>LET’S GET TO KNOW YOUR SEARCH</span>
+                    <h3>What would you like to find?</h3>
+                    <p>Required fields are marked with an asterisk.</p>
+                </div>
+                <input type="hidden" name="service" value="Property enquiry">
+                <div class="property-brief-field">
+                    <label for="property-need">I’m looking to <span aria-hidden="true">*</span></label>
+                    <select id="property-need" name="propertyNeed" required>
+                        <option value="" disabled selected>Select your goal</option>
+                        <option value="Buy a property">Buy a property</option>
+                        <option value="Rent a property">Rent a property</option>
+                        <option value="Explore a property investment">Explore a property investment</option>
+                        <option value="Sell or manage a property">Sell or manage a property</option>
+                    </select>
+                </div>
+                <div class="property-brief-field">
+                    <label for="property-type">Property type</label>
+                    <select id="property-type" name="propertyType">
+                        <option value="">Choose a property type (optional)</option>
+                        <option>House</option>
+                        <option>Apartment</option>
+                        <option>Land</option>
+                        <option>Commercial property</option>
+                        <option>Not sure yet</option>
+                    </select>
+                </div>
+                <div class="property-brief-field">
+                    <label for="property-location">Preferred location</label>
+                    <input id="property-location" name="propertyLocation" type="text" placeholder="e.g. Ijebu-Ode or a nearby area" autocomplete="address-level2">
+                </div>
+                <div class="property-brief-field">
+                    <label for="property-budget">Budget or price range <span class="property-optional">(optional)</span></label>
+                    <input id="property-budget" name="propertyBudget" type="text" placeholder="Share a range if you have one">
+                </div>
+                <div class="property-brief-field">
+                    <label for="property-timing">When are you hoping to move?</label>
+                    <select id="property-timing" name="propertyTiming">
+                        <option value="">Select a timeframe (optional)</option>
+                        <option>As soon as possible</option>
+                        <option>Within 1–3 months</option>
+                        <option>Within 3–6 months</option>
+                        <option>I’m just exploring</option>
+                    </select>
+                </div>
+                <div class="property-brief-field">
+                    <label for="property-requirements">Anything else we should know?</label>
+                    <textarea id="property-requirements" name="propertyRequirements" rows="3" placeholder="Bedrooms, must-haves, questions, or anything else that matters to you"></textarea>
+                </div>
+                <button class="property-search-button property-search-button--primary" type="submit">Send my property brief <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                <p class="contact-status" id="property-brief-status" role="status" aria-live="polite"></p>
+                <p class="property-brief-form__privacy"><i class="fa-solid fa-lock" aria-hidden="true"></i> Your property brief will be sent directly to our team. Include your contact details under additional details if you would like us to follow up.</p>
+            </form>
+        </section>
+
+        <section class="property-search-help" aria-label="Need help with your property search">
+            <div><span class="property-search-kicker">PREFER TO TALK?</span><h2>We’re happy to help you figure out where to start.</h2></div>
+            <a class="property-search-button property-search-button--dark" href="../html/contact.html#contact-form">Contact our team <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </section>
+    </main>
+
+    <footer class="property-footer">
+        <div class="property-footer__top">
+            <div class="property-footer__brand">
+                <a href="../html/Homepage.html" aria-label="Rematech home"><img src="../Images/Logo.png" alt="Rematech"></a>
+                <p>Helping buyers, renters, and investors make their next move with trusted advice and attentive property support.</p>
+            </div>
+            <div class="property-footer__links">
+                <h2>Explore</h2>
+                <a href="../html/Homepage.html">Home</a>
+                <a href="../html/About.html">About us</a>
+                <a href="../html/properties.html">Properties</a>
+                <a href="../html/services.html">Services</a>
+                <a href="../html/contact.html">Contact</a>
+            </div>
+            <div class="property-footer__contact">
+                <h2>Get in touch</h2>
+                <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 2nd Floor, Cele Junction, Ejinrin Road, Ijebu-Ode, Ogun State</p>
+                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:info@rematechproperties.com">info@rematechproperties.com</a></p>
+                <p><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+2349026744296">+234 902 674 4296</a></p>
+            </div>
+        </div>
+        <div class="property-footer__bottom"><span>© 2026 Rematech Properties. All rights reserved.</span><span>Here to help you move forward.</span></div>
+    </footer>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/viewproperties.js" defer></script>
+</body>
+</html>

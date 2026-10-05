@@ -1,0 +1,119 @@
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import bodyParser from "body-parser";
+import nodemailer from "nodemailer";
+import { fileURLToPath } from "node:url";
+
+dotenv.config({ path: fileURLToPath(new URL("./.env", import.meta.url)) });
+// Create an instance of Express
+const app = express();
+const PORT = process.env.PORT || 5000;
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/send-email', async (req, res) => {
+  const { name, email, subject, message } = req.body || {};
+
+  if (![name, email, message].every((value) => typeof value === 'string' && value.trim())) {
+    return res.status(400).json({ error: 'Name, email, and message are required' });
+  }
+  const trimmedName = name.trim();
+  const trimmedEmail = email.trim();
+  const selectedSubject = typeof subject === 'string' && subject.trim()
+    ? subject.trim()
+    : `Contact message from ${trimmedName}`;
+
+  // Setup transporter
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
+  const mailOptions = {
+    from: { name: trimmedName, address: process.env.EMAIL_USER },
+    replyTo: trimmedEmail,
+    to: 'israeltomisin001@gmail.com',
+    subject: selectedSubject,
+    text: [
+      `Name: ${trimmedName}`,
+      `Email: ${trimmedEmail}`,
+      `Subject: ${selectedSubject}`,
+      '',
+      message,
+    ].join('\n'),
+  };
+
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent:', info.response);
+    res.status(200).json({ message: 'Email sent successfully' });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ error: 'Failed to send email' });
+  }
+});
+// Property enquiry endpoint
+app.post('/property-enquiry', async (req, res) => {
+  const {
+    looking_to,
+    property_type = '',
+    location = '',
+    price_range = '',
+    hoping_to = '',
+    message = '',
+  } = req.body || {};
+  const fields = { looking_to, property_type, location, price_range, hoping_to, message };
+
+  if (Object.values(fields).some((value) => typeof value !== 'string')) {
+    return res.status(400).json({ error: 'Property enquiry fields must be strings' });
+  }
+  if (!looking_to.trim()) {
+    return res.status(400).json({ error: 'Please tell us what you are looking for' });
+  }
+
+  const propertyDetails = [
+    ['Looking to', looking_to],
+    ['Property type', property_type],
+    ['Preferred location', location],
+    ['Budget or price range', price_range],
+    ['Moving timeframe', hoping_to],
+    ['Additional details', message],
+  ]
+    .filter(([, value]) => value.trim())
+    .map(([label, value]) => `${label}: ${value.trim()}`)
+    .join('\n');
+
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const info = await transporter.sendMail({
+      from: { name: 'Rematech Property Enquiry', address: process.env.EMAIL_USER },
+      to: 'israeltomisin001@gmail.com',
+      subject: `Property enquiry: ${looking_to.trim()}`,
+      text: propertyDetails,
+    });
+
+    console.log('Property enquiry sent:', info.response);
+    res.status(200).json({ message: 'Your property enquiry has been sent successfully' });
+  } catch (error) {
+    console.error('Error sending property enquiry:', error);
+    res.status(500).json({ error: 'Failed to send property enquiry' });
+  }
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
